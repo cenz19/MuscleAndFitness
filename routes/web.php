@@ -18,5 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('/template', function(){
-    return view('template.template');
+    return view('layouts.app');
+});
+
+Route::get('/home', function(){
+    return view('home.index');
+});
+
+Route::get('/about', function(){
+    return view('about.index');
 });
