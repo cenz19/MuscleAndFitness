@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,10 @@ Route::get('/home', function(){
 
 Route::get('/about', function(){
     return view('about.index');
+}); 
+
+Route::get('/program', [ProgramController::class, 'show']);
+
+Route::get('/exercise', function(){
+    return view('exercise.index', []);
 });
