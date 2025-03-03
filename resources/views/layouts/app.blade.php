@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Muscle & Fitness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-size: 62.5%;
         }
+
         body {
             margin: 0;
             font-family: 'Bebas Neue', sans-serif;
@@ -19,17 +23,21 @@
             color: #333;
             letter-spacing: 0.1rem;
         }
-        h1{
+
+        h1 {
             font-size: 10rem;
         }
-        h2{
-            font-size: 8rem;    
+
+        h2 {
+            font-size: 8rem;
         }
-        h3{
+
+        h3 {
             font-size: 3rem;
             letter-spacing: 0.2rem;
         }
-        p{
+
+        p {
             font-size: 1.5rem;
             font-family: Helvetica;
         }
@@ -123,6 +131,7 @@
     </style>
     @yield('css')
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -157,5 +166,9 @@
         </ul>
         <p class="copyright">&copy; 2025 Muscle & Fitness. All rights reserved.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
