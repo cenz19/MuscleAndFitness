@@ -1,0 +1,8 @@
+:root {
+    --bs-primary: #ff6600;
+}
+
+button{
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}

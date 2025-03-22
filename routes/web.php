@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,12 @@ Route::get('/about', function(){
     return view('about.index');
 }); 
 
+Route::get('/login', function(){
+    return view('login.index');
+});
+
 Route::get('/program', [ProgramController::class, 'show']);
 
 Route::get('/exercise', [ExerciseController::class, 'show'] );
+
+Route::post('/login', [LoginController::class, 'login'])->name('login');
