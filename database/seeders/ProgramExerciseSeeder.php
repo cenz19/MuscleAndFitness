@@ -163,31 +163,31 @@ class ProgramExerciseSeeder extends Seeder
                 [
                     'exercise_id' => 3,
                     'program_id' => 9,
-                    'day_id' => 5,
+                    'day_id' => 6,
                     'reps' => 2
                 ],
                 [
                     'exercise_id' => 3,
                     'program_id' => 10,
-                    'day_id' => 5,
+                    'day_id' => 6,
                     'reps' => 2
                 ],
                 [
                     'exercise_id' => 3,
                     'program_id' => 11,
-                    'day_id' => 5,
+                    'day_id' => 6,
                     'reps' => 1
                 ],
                 [
                     'exercise_id' => 3,
                     'program_id' => 12,
-                    'day_id' => 5,
+                    'day_id' => 6,
                     'reps' => 1
                 ],
                 [
                     'exercise_id' => 3,
                     'program_id' => 8,
-                    'day_id' => 5,
+                    'day_id' => 6,
                     'reps' => 1
                 ],
                 ### **4x Seminggu (Upper - Lower Split)**
