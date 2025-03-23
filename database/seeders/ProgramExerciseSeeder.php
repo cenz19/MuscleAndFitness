@@ -16,18 +16,17 @@ class ProgramExerciseSeeder extends Seeder
         DB::table('program_exercise')->insert(
             [
                 [
+                    'exercise_id' => 1,
                     'program_id' => 1,
-                    'exercise_id' => 4,
-                    'created_at' => now(),
-                    'updated_at' => now(),
+                    'day_id' => 1,
+                    'reps' => 2
                 ], 
                 [
-                    'program_id' => 5,
-                    'exercise_id' => 5,
-                    'created_at' => now(),
-                    'updated_at' => now(),
+                    'exercise_id' => 1,
+                    'program_id' => 2,
+                    'day_id' => 1,
+                    'reps' => 2
                 ], 
-                
             ]
             );
     }

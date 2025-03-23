@@ -9,12 +9,14 @@ class Program extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    
     protected $fillable=[
         'name',
         'description'
     ];
 
     function Exercises(){
-        return $this->belongsToMany(Exercise::class, 'program_exercise', 'program_id', 'exercise_id')->withTimestamps();
+        return $this->belongsToMany(Exercise::class, 'program_exercise', 'program_id', 'exercise_id');
     }
 }

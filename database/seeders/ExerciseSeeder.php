@@ -15,51 +15,26 @@ class ExerciseSeeder extends Seeder
     {
         DB::table('exercises')->insert([
             [
-                'name' => 'Squat',
-                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => '1x Seminggu (Full Body)',
             ],
             [
-                'name'=> 'Push Up',
-                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name'=> '2x Seminggu (Upper - Lower)',
             ],
             [
-                'name' => 'Pull Up',
-                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => '3x Seminggu (Push - Pull - Legs)',
             ], 
             [   
-                'name' => 'Bench Press', 
-                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                'created_at' => now(),
-                'updated_at' => now(),
+                'name' => '4x Seminggu (Upper - Lower Split)', 
             ], 
             [
-                "name" => "Deadlift", 
-                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
-                                printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-            
+                "name" => "5x Seminggu (Body Part Split)", 
+            ],
+            [   
+                'name' => '6x Seminggu (Modified Push-Pull-Legs)', 
+            ],
+            [   
+                'name' => '7x Seminggu (Advanced Bro Split)', 
+            ],
         ]);
     }
 }

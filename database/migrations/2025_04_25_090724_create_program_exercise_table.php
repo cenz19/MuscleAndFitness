@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('program_exercise', function (Blueprint $table) {
-            $table->foreignId('program_id');
-            $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('exercise_id');
-            $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
-        });
+            $table->foreignId('program_id')->constrained('programs')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('exercise_id')->constrained('exercises')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('day_id')->constrained('days')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->integer('reps');
+            $table->primary(['program_id', 'exercise_id', 'day_id']);
+        });    
     }
+
 
     /**
      * Reverse the migrations.
