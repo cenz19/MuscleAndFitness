@@ -18,7 +18,7 @@ class ExerciseSeeder extends Seeder
                 'name' => '1x Seminggu (Full Body)',
             ],
             [
-                'name'=> '2x Seminggu (Upper - Lower)',
+                'name' => '2x Seminggu (Upper - Lower)',
             ],
             [
                 'name' => '3x Seminggu (Push - Pull - Legs)',

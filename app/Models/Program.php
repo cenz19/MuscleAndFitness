@@ -9,14 +9,21 @@ class Program extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
     public $timestamps = false;
-    
-    protected $fillable=[
-        'name',
-        'description'
-    ];
 
-    function Exercises(){
-        return $this->belongsToMany(Exercise::class, 'program_exercise', 'program_id', 'exercise_id');
+    public function categories()
+    {
+        return $this->hasMany(Category::class, 'program_id', 'id');
+    }
+
+    public function exercises()
+    {
+        return $this->belongsToMany(
+            Exercise::class,
+            'program_exercise',
+            'program_id',
+            'exercise_id'
+        )->withPivot('day_id', 'reps');
     }
 }

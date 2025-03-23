@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Exercise extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name'];
     public $timestamps = false;
 
-    protected $fillable=[
-        'name',
-        'description'
-    ];
+    public function programs()
+{
+    return $this->belongsToMany(
+        Program::class, 
+        'program_exercise', 
+        'exercise_id', 
+        'program_id'
+    )->withPivot('day_id', 'reps');
+}
 
-    function Programs(){
-        return $this->belongsToMany(Program::class, 'program_exercise', 'exercise_id', 'program_id');
-    }
 }

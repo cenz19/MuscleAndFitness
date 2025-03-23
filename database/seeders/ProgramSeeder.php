@@ -15,21 +15,29 @@ class ProgramSeeder extends Seeder
     {
         DB::table('programs')->insert([
         [
-            'name'=>'Dada (Chest)', 
+            'name' => "Dada (Chest)", 
         ], 
         [
             'name' => "Punggung (Back)", 
         ], 
         [
             'name' => "Bahu (Shoulders)", 
-            
         ], 
         [
             'name' => 'Biceps', 
+        ],
+        [
+            'name' => 'Triceps', 
         ], 
         [
-            'name' => "Legs", 
-        ]  
+            'name' => "Kaki (Legs)", 
+        ],
+        [
+            'name' => 'Perut (Abs)', 
+        ],
+        [
+            'name' => 'core'
+        ]
         ]);
     }
 }

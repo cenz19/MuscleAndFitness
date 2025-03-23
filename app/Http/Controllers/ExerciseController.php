@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
 {
-    
     function show(){
         $exercises = Exercise::join('program_exercise as pe', 'pe.exercise_id', '=', 'exercises.id')
         ->join('programs as p', 'pe.program_id', '=', 'p.id')
