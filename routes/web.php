@@ -36,8 +36,8 @@ Route::get('/login', function(){
     return view('login.index');
 });
 
-Route::get('/program', [ProgramController::class, 'show']);
+Route::get('/program', [ProgramController::class, 'show'])->name("program");
 
-Route::get('/exercise', [ExerciseController::class, 'show'] );
+Route::get('/exercise', [ExerciseController::class, 'show']);
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
