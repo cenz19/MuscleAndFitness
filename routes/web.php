@@ -4,6 +4,7 @@ use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SupportingController;
 use App\Models\Exercise;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,5 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::resource('/dashboard', DashboardController::class);  
 Route::get('/exercise', [ExerciseController::class, 'index'])->name('exercise.index');
 Route::post('/exercise', [ExerciseController::class, 'edit'])->name('exercise');
+
+Route::resource('/supporting-factors', SupportingController::class);
