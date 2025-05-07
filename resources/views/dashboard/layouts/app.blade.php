@@ -26,6 +26,10 @@
             border-radius: 0;
         }
 
+        .list-group-item {
+            border: none !important;
+        }
+
         .btn-solid {
             background-color: #ff6600;
             color: white;
@@ -44,6 +48,12 @@
         #sidebar {
             height: 100vh;
         }
+
+        .list-group-item.active a,
+        .list-group-item.active a h4 {
+            color: white !important;
+        }
+
     </style>
     @yield('style')
 </head>
@@ -51,7 +61,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3 p-0 border-end">
+            <div class="col-3 p-0">
                 <div id="sidebar" class="w-100">
                     <div class="d-flex align-items-center p-3">
                         <img src="{{ asset('images') }}/logo.png" width="100px" alt="">
