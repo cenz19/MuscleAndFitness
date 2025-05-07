@@ -50,3 +50,5 @@ Route::get('/exercise-admin', [ExerciseController::class, 'index'])->name('exerc
 Route::post('/exercise-admin', [ExerciseController::class, 'edit'])->name('exercise');
 
 Route::resource('/supporting-factors', SupportingController::class);
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

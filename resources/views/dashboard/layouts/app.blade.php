@@ -85,7 +85,8 @@
             </div>
             <div class="col-9 px-0">
                 <nav class="navbar pt-2 w-100 d-flex flex-row-reverse">
-                    <form action="" method="post" class="me-3">
+                    <form action="{{route('logout')}}" method="GET" class="me-3">
+                        @csrf
                         <input type="submit" class="btn btn-outline" id="logout-button" value="LOGOUT">
                     </form>
                 </nav>

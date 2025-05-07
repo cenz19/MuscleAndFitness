@@ -32,9 +32,16 @@ class LoginController extends Controller
                 'error_message' => 'Wrong password'
             ]);
         }
-    
-        // Login gagal, kembali ke halaman login dengan pesan error
-        
+            
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/home');
     }
     
 }
