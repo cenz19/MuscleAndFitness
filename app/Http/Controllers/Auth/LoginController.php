@@ -23,16 +23,15 @@ class LoginController extends Controller
                 'error_message' => 'No user found!'
             ]);
         }
-        else if ($user && Hash::check($request->password, $user->password)) {
-            // Login berhasil, buat sesi
+        // Perbandingan langsung tanpa hash (TIDAK AMAN)
+        else if ($user && $request->password === $user->password) {
             Auth::login($user);
             return redirect()->intended('/dashboard');
-        }else if(!Hash::check($request->password, $user->password)){
+        } else {
             return back()->withErrors([
                 'error_message' => 'Wrong password'
             ]);
         }
-            
     }
 
     public function logout(Request $request){

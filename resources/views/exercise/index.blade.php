@@ -97,7 +97,6 @@
 <div class="workout-header">
     <h1>Your Personalized Workout Programs</h1>
     <p>Train smarter. Push harder. Achieve more.</p>
-    <a href="{{ route("program") }}" class="btn-orange">Explore More Programs</a>
 </div>
 
 <!-- Workout Accordion Section -->

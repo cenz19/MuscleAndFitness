@@ -43,6 +43,9 @@ Route::get('/program', [ProgramController::class, 'show'])->name("program");
 
 Route::get('/exercise', [ExerciseController::class, 'show']);
 
+
+
+
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::resource('/dashboard', DashboardController::class);  
@@ -52,3 +55,7 @@ Route::post('/exercise-admin', [ExerciseController::class, 'edit'])->name('exerc
 Route::resource('/supporting-factors', SupportingController::class);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/exercise/edit', [ExerciseController::class, 'edit'])->name('exercise.edit');
+Route::put('/exercise/update/{id}', [ExerciseController::class, 'update'])->name('exercise.update');
+

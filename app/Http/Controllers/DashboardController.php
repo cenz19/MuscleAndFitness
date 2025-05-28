@@ -58,8 +58,10 @@ class DashboardController extends Controller
         $program = Program::find($id);
         $program->name = $request->program_name;
         $program->save();
-        return redirect()->back()->with('success', 'Update Successful');
+
+        return redirect()->route('dashboard.index')->with('success', 'Update Successful');
     }
+
 
     /**
      * Remove the specified resource from storage.
