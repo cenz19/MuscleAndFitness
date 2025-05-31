@@ -101,22 +101,22 @@
 <!-- Features Section -->
 <div class="features-section">
     <div class="feature-item">
-        <i class="bi bi-bandaid icon"></i>
-        <h3>Strength Training</h3>
-        <p>Build muscle and boost endurance with our expert-led strength workouts.</p>
-        <a href="/strength-training" class="btn">Learn More</a>
+        <i class="bi bi-calendar"></i>
+        <h3>Programs</h3>
+        <p>This structured fitness regimen guides you to your goals through consistent with our expert-led strength workouts.</p>
+        <a href="{{route('program')}}" class="btn">Learn More</a>
     </div>
     <div class="feature-item">
-        <i class="bi bi-heart-pulse icon"></i>
-        <h3>Cardio Workouts</h3>
+        <i class="bi bi-activity"></i>
+        <h3>Exercises</h3>
         <p>Improve your heart health and burn calories with dynamic cardio sessions.</p>
-        <a href="/cardio-workouts" class="btn">Learn More</a>
+        <a href="{{route('exercise')}}" class="btn">Learn More</a>
     </div>
     <div class="feature-item">
         <i class="bi bi-egg-fried icon"></i>
-        <h3>Nutrition Plans</h3>
+        <h3>Supporting Factors</h3>
         <p>Personalized meal plans to complement your fitness journey and goals.</p>
-        <a href="/nutrition-plans" class="btn">Learn More</a>
+        <a href="{{route('supporting-factors.index')}}" class="btn">Learn More</a>
     </div>
 </div>
 

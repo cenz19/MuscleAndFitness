@@ -52,7 +52,7 @@ Route::resource('/dashboard', DashboardController::class);
 Route::get('/exercise-admin', [ExerciseController::class, 'index'])->name('exercise.index');
 Route::post('/exercise-admin', [ExerciseController::class, 'edit'])->name('exercise');
 
-Route::resource('/supporting-factors', SupportingController::class);
+Route::resource('/supporting-factors', SupportingController::class)->names('supporting-factors');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
