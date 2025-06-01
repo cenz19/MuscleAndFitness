@@ -13,71 +13,28 @@ class ProgramSeeder extends Seeder
      */
     public function run(): void
     {
+        //
         DB::table('programs')->insert([
-        [
-            //1
-            'name' => "Dada (Chest)", 
-        ], 
-        [
-            //2
-            'name' => "Punggung (Back)", 
-        ], 
-        [
-            //3
-            'name' => "Bahu (Shoulders)", 
-        ], 
-        [
-            //4
-            'name' => 'Biceps', 
-        ],
-        [
-            //5
-            'name' => 'Triceps', 
-        ], 
-        [
-            //6
-            'name' => "Kaki (Legs)", 
-        ],
-        [
-            //7
-            'name' => 'Perut (Abs)', 
-        ],
-        [
-            //8
-            'name' => 'Core'
-        ],
-        [
-            //9
-            'name' => 'Quads'
-        ], 
-        [
-            //10
-            'name' => 'Hamstring'
-        ], 
-        [
-            //11
-            'name' => 'Glutes'
-        ],
-        [
-            //12
-            'name' => 'Calves'
-        ], 
-        [
-            //13
-            'name' => "Rear Delt"
-        ],
-        [
-            //14
-            'name' => "Traps"
-        ],
-        [
-            //15
-            'name' => "Mobility"
-        ],
-        [
-            //16
-            'name' => "Light Cardio"
-        ]                                   
+            [
+                'day_id' => 1,
+                'exercise_id' => 1,
+                'reps' => 12,
+            ],
+            [
+                'day_id' => 1,
+                'exercise_id' => 2,
+                'reps' => 10,
+            ],
+            [
+                'day_id' => 2,
+                'exercise_id' => 1,
+                'reps' => 15,
+            ],
+            [
+                'day_id' => 2,
+                'exercise_id' => 3,
+                'reps' => 8,
+            ],
         ]);
     }
 }

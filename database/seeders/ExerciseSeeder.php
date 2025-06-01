@@ -13,28 +13,18 @@ class ExerciseSeeder extends Seeder
      */
     public function run(): void
     {
+
         DB::table('exercises')->insert([
-            [
-                'name' => '1x Seminggu (Full Body)',
-            ],
-            [
-                'name' => '2x Seminggu (Upper - Lower)',
-            ],
-            [
-                'name' => '3x Seminggu (Push - Pull - Legs)',
-            ], 
-            [   
-                'name' => '4x Seminggu (Upper - Lower Split)', 
-            ], 
-            [
-                "name" => "5x Seminggu (Body Part Split)", 
-            ],
-            [   
-                'name' => '6x Seminggu (Modified Push-Pull-Legs)', 
-            ],
-            [   
-                'name' => '7x Seminggu (Advanced Bro Split)', 
-            ],
+            ['name' => 'Chest',    'description' => 'Pectoral muscles used in pushing movements.'],
+            ['name' => 'Back',     'description' => 'Latissimus dorsi and other muscles used in pulling movements.'],
+            ['name' => 'Shoulders','description' => 'Deltoid muscles supporting arm movement.'],
+            ['name' => 'Biceps',   'description' => 'Front arm muscles responsible for elbow flexion.'],
+            ['name' => 'Triceps',  'description' => 'Back arm muscles responsible for elbow extension.'],
+            ['name' => 'Core',     'description' => 'Abdominals and obliques stabilizing the torso.'],
+            ['name' => 'Quadriceps','description' => 'Front thigh muscles used in leg extension.'],
+            ['name' => 'Hamstrings','description' => 'Back thigh muscles used in leg flexion.'],
+            ['name' => 'Glutes',   'description' => 'Muscles of the buttocks for hip extension.'],
+            ['name' => 'Calves',   'description' => 'Lower leg muscles used in ankle flexion.']
         ]);
     }
 }

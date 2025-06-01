@@ -12,10 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('nutritions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('program_id')->constrained('programs')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->float('calories');
+            $table->float('fat');
+            $table->float("protein");
+            $table->float("carb");
+            $table->string("image_url");
+
         });
     }
 
@@ -25,6 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('nutritions');
     }
 };
