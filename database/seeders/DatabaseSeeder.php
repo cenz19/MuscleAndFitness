@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             NutritionsSeeder::class,
             DaysSeeder::class,
             ExerciseSeeder::class, 
+            ProgramSeeder::class
         ]);
     }
 }

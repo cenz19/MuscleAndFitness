@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExerciseUserController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SupportingController;
 use App\Models\Exercise;
@@ -39,9 +40,10 @@ Route::get('/login', function(){
     return view('login.index');
 });
 
-Route::get('/program', [ProgramController::class, 'show'])->name("program");
+// Route::get('/program', [ProgramController::class, 'show'])->name("program");
+Route::get('/program', [ProgramController::class, 'index'])->name('program');
 
-Route::get('/exercise', [ExerciseController::class, 'show']);
+// Route::get('/exercise', [ExerciseController::class, 'show']);
 
 
 
@@ -49,13 +51,14 @@ Route::get('/exercise', [ExerciseController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::resource('/dashboard', DashboardController::class);  
-Route::get('/exercise-admin', [ExerciseController::class, 'index'])->name('exercise.index');
-Route::post('/exercise-admin', [ExerciseController::class, 'edit'])->name('exercise');
+Route::resource('/exercise', ExerciseUserController::class)->names('exercise.user');
+// Route::get('/exercise-admin', [ExerciseController::class, 'index'])->name('exercise.index');
+// Route::post('/exercise-admin', [ExerciseController::class, 'edit'])->name('exercise');
 
 Route::resource('/supporting-factors', SupportingController::class)->names('supporting-factors');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/exercise/edit', [ExerciseController::class, 'edit'])->name('exercise.edit');
-Route::put('/exercise/update/{id}', [ExerciseController::class, 'update'])->name('exercise.update');
+// Route::get('/exercise/edit', [ExerciseController::class, 'edit'])->name('exercise.edit');
+// Route::put('/exercise/update/{id}', [ExerciseController::class, 'update'])->name('exercise.update');
 

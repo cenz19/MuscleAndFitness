@@ -110,7 +110,7 @@
         <i class="bi bi-activity"></i>
         <h3>Exercises</h3>
         <p>Improve your heart health and burn calories with dynamic cardio sessions.</p>
-        <a href="{{route('exercise')}}" class="btn">Learn More</a>
+        <a href="{{route('exercise.user.index')}}" class="btn">Learn More</a>
     </div>
     <div class="feature-item">
         <i class="bi bi-egg-fried icon"></i>

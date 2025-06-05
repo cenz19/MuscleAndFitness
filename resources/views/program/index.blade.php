@@ -100,8 +100,12 @@
                  aria-labelledby="heading-{{ $index }}"
                  data-bs-parent="#programAccordion">
                 <div class="accordion-body">
-                    <p class="text-black">{{ $program->description }}</p>
-                    <p>hello</p>
+                    <ul>
+                        @foreach ($program->exercises as $exercise)
+                            <h3>{{ $exercise['name'] }}</h3>
+                            <p>{{$exercise['description']}}</p>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

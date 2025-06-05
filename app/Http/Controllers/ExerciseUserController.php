@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Day;
 use App\Models\Exercise;
 use Illuminate\Http\Request;
 
-class ProgramController extends Controller
+class ExerciseUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $programs = Day::with('exercises')->get();
-        // return $programs;
-        return view('program.index', compact('programs'));
+        $exercises = Exercise::all();
+        return view('exercise.index', compact('exercises'));
     }
 
     /**

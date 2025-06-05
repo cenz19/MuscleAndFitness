@@ -66,6 +66,11 @@
         font-size: 1.4rem;
         margin-bottom: 0.3rem;
     }
+
+    .img-thumbnail{
+        width: 350px;
+        height: 250px;
+    }
 </style>
 @endsection
 
@@ -101,11 +106,11 @@
             @foreach ($foods as $food)
             <div class="col-md-6">
                 <div class="food-item d-flex p-3">
-                    <img class="img-thumbnail" width="200" src="{{ $food['image'] }}" alt="{{ $food['name'] }}">
+                    <img class="img-thumbnail" width="200" src="{{ $food['image_url'] }}" alt="{{ $food['name'] }}">
                     <div class="ms-3">
                         <h3>{{ $food['name'] }}</h3>
                         <p>Calories: {{ $food['calories'] }}</p>
-                        <p>Carbs: {{ $food['carbs'] }}</p>
+                        <p>Carbs: {{ $food['carb'] }}</p>
                         <p>Protein: {{ $food['protein'] }}</p>
                         <p>Fats: {{ $food['fat'] }}</p>
                     </div>

@@ -45,7 +45,7 @@ class NutritionsSeeder extends Seeder
                 'fat' => 3.2,
                 'protein' => 29,
                 'carb' => 0,
-                'image_url' => 'https://example.com/roasted-turkey.jpg'
+                'image_url' => 'https://www.allrecipes.com/thmb/ORGJ6dFOd8LA5JQLvVAVD1PfJjo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-56348-a-simply-perfect-roast-turkey-VAT-hero-4x3-c9eaf408d00a4cd89251ea856b1c317f.jpg'
             ],
             [
                 'name' => 'Grilled Salmon',
@@ -53,7 +53,7 @@ class NutritionsSeeder extends Seeder
                 'fat' => 13,
                 'protein' => 20,
                 'carb' => 0,
-                'image_url' => 'https://example.com/grilled-salmon.jpg'
+                'image_url' => 'https://www.dinneratthezoo.com/wp-content/uploads/2019/05/grilled-salmon-final-2.jpg'
             ]
         ]);
     }

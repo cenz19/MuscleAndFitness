@@ -101,7 +101,7 @@
 
 <!-- Workout Accordion Section -->
 <div class="accordion" id="workoutAccordion">
-    @foreach($structuredData as $exercise => $days)
+    @foreach($exercises as $exercise)
         <div class="accordion-item">
             <!-- exercise Header -->
             <h2 class="accordion-header" id="heading-{{ Str::slug($exercise) }}">
@@ -110,7 +110,7 @@
                     data-bs-target="#collapse-{{ Str::slug($exercise) }}" 
                     aria-expanded="false" 
                     aria-controls="collapse-{{ Str::slug($exercise) }}">
-                    <i class="bi bi-fire me-2"></i> {{ $exercise }}
+                    <i class="bi bi-fire me-2"></i> {{ $exercise['name'] }}
                 </button>
             </h2>
 
@@ -119,15 +119,7 @@
                 aria-labelledby="heading-{{ Str::slug($exercise) }}" 
                 data-bs-parent="#workoutAccordion">
                 <div class="accordion-body">
-                    @foreach($days as $day => $programs)
-                        <!-- Day Header -->
-                        <h4 class="day-title"><i class="bi bi-calendar-check me-2"></i> {{ $day }} Day</h4>
-                        <ul>
-                            @foreach($programs as $program)
-                                <li class="exercise-item">{{ $program }}</li>
-                            @endforeach
-                        </ul>
-                    @endforeach
+                    <p>{{$exercise['description']}}</p>
                 </div>
             </div>
         </div>
