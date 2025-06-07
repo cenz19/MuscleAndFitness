@@ -1,6 +1,7 @@
-@extends('dashboard.layouts.app')
-@section('pageName', 'Program Page')
-@section('isProgram', 'active')
+@extends('admin.layouts.app')
+
+@section('pageName', 'Exercise Page')
+@section('isExercise', 'active')
 
 @section('style')
 <style>
@@ -59,36 +60,42 @@
 @endsection
 
 @section('content')
-    @if (session()->has('success'))
+    @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> {{ session('success') }}
+            <strong>Success</strong> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @elseif(Session::has('failed'))
+        <div class="alert alert-danger" role="alert">
+            <strong>Failed</strong>{{session('failed')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <h1>List of Programs</h1>
+
+    <h1 class="text-center">List of Exercises</h1>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Description</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($programs as $program)
+            @foreach ($exercises as $exercise)
                 <tr>
-                    <td>{{ $program->id }}</td>
-                    <td>{{ $program->name }}</td>
+                    <td>{{ $exercise->id }}</td>
+                    <td>{{ $exercise->name }}</td>
+                    <td>{{ $exercise->description }}</td>
                     <td>
-                        <form class="action-form" action="{{ route('dashboard.edit', ['dashboard' => $program->id]) }}" method="GET">
-                            <input class="btn-outline" type="submit" value="EDIT">
+                        <form action="{{ route('exercise.admin.edit', $exercise->id) }}" method="GET" class="action-form">
+                            <input type="submit" value="EDIT" class="btn-outline">
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-@endsection
-
-@section('script')
 @endsection

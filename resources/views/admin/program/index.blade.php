@@ -1,7 +1,6 @@
-@extends('dashboard.layouts.app')
-
-@section('pageName', 'Exercise Page')
-@section('isExercise', 'active')
+@extends('admin.layouts.app')
+@section('pageName', 'Program Page')
+@section('isProgram', 'active')
 
 @section('style')
 <style>
@@ -66,37 +65,43 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-
-    <h1 class="text-center">List of Exercises</h1>
-
+    <h1>List of Programs</h1>
     <table>
         <thead>
             <tr>
-                <th>Exercise</th>
-                <th>Day</th>
-                <th>Program</th>
+                <th>Day id</th>
+                <th>Day Name</th>
+                <th>Exercise id</th>
+                <th>Exercise Name</th>
                 <th>Reps</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($datas as $data)
-                <tr>
-                    <td>{{ $data->exercise_name }}</td>
-                    <td>{{ $data->day_name }}</td>
-                    <td>{{ $data->program_name }}</td>
-                    <td>{{ $data->reps }}</td>
-                    <td>
-                        <form action="{{ route('exercise.edit') }}" method="GET" class="action-form">
-                            <input type="hidden" name="exercise_name" value="{{ $data->exercise_name }}">
-                            <input type="hidden" name="day_name" value="{{ $data->day_name }}">
-                            <input type="hidden" name="program_name" value="{{ $data->program_name }}">
-                            <input type="hidden" name="reps" value="{{ $data->reps }}">
-                            <input type="submit" value="EDIT" class="btn-outline">
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
+           @foreach ($programs as $program)
+               <tr>
+                <td rowspan="{{$program->exercises->count() + 1}}">{{$program->id}}</td>
+                <td rowspan="{{$program->exercises->count() + 1}}">{{$program->name}}</td>
+                @if ($program->exercises != null)
+                    @foreach ($program->exercises as $exercise)
+                    <tr>
+                        <td>{{$exercise->id}}</td>
+                        <td>{{$exercise->name}}</td>
+                        <td>{{$exercise->pivot->reps}}</td>
+                        <td>
+                            <form action="{{route('edit.program.admin', ['idExercise' => $exercise->id, 'idDay' => $program->id ])}}" method="get">
+                                <input type="hidden" value="{{$exercise->pivot->reps}}" name="reps">
+                                <button class="btn btn-outline" type="submit">Edit</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                @endif
+               </tr>
+           @endforeach
         </tbody>
     </table>
+@endsection
+
+@section('script')
 @endsection

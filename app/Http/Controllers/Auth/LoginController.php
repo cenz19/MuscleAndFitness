@@ -26,7 +26,7 @@ class LoginController extends Controller
         // Perbandingan langsung tanpa hash (TIDAK AMAN)
         else if ($user && $request->password === $user->password) {
             Auth::login($user);
-            return redirect()->intended('/dashboard');
+            return redirect()->route('exercise.admin.index');
         } else {
             return back()->withErrors([
                 'error_message' => 'Wrong password'

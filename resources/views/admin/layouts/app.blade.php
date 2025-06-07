@@ -6,6 +6,7 @@
     <title>Dashboard Admin | @yield('pageName')</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
@@ -27,9 +28,16 @@
             min-height: 100vh;
         }
 
+        ul{
+            padding-left: 0;
+        }
+
         #sidebar {
             width: var(--sidebar-width);
             background-color: var(--sidebar-bg);
+            position: sticky;
+            top: 0;
+            left: 0;
             height: 100vh;
             padding: 1.5rem 1rem;
             display: flex;
@@ -82,9 +90,12 @@
         }
 
         .navbar {
+            position: sticky;
+            top: 0;
             padding: 1rem;
             display: flex;
             justify-content: flex-end;
+            background-color: #fff;
             border-bottom: 1px solid #ddd;
         }
 
@@ -118,14 +129,19 @@
             <h3>Dashboard Admin</h3>
         </div>
         <ul class="nav-links">
+            <li class="@yield('isExercise')">
+                <a href="{{ route('exercise.admin.index') }}">
+                    <i class="fas fa-dumbbell"></i> &nbsp; Exercise
+                </a>
+            </li>
             <li class="@yield('isProgram')">
-                <a href="{{ route('dashboard.index') }}">
+                <a href="{{ route('program.admin.index') }}">
                     <i class="fas fa-layer-group"></i> &nbsp; Program
                 </a>
             </li>
-            <li class="@yield('isExercise')">
-                <a href="{{ route('exercise.index') }}">
-                    <i class="fas fa-dumbbell"></i> &nbsp; Exercise
+            <li class="@yield('isDay')">
+                <a href="{{ route('day.admin.index') }}">
+                    <i class="fa-solid fa-calendar-days"></i> &nbsp; Day
                 </a>
             </li>
         </ul>
@@ -143,7 +159,7 @@
             @yield('content')
         </section>
     </main>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     @yield('script')
 </body>
 </html>
