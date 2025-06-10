@@ -6,7 +6,9 @@ use App\Http\Controllers\ExerciseAdminController;
 use App\Http\Controllers\ExerciseUserController;
 use App\Http\Controllers\ProgramAdminController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SupportingAdminController;
 use App\Http\Controllers\SupportingController;
+use App\Http\Controllers\SupportingControllerAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +48,7 @@ Route::resource('/program-admin', ProgramAdminController::class)->names("program
 Route::get('/editProgramAdmin/{idExercise}/{idDay}', [ProgramAdminController::class, 'editProgram'])->name('edit.program.admin');
 Route::put('/updateProgram', [ProgramAdminController::class, 'updateProgram'])->name('update.program.admin');
 Route::resource('/day', DayController::class)->names('day.admin');
+Route::resource('/supporting-admin', SupportingAdminController::class)->names('nutrition.admin');
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::resource('/dashboard', DashboardController::class);  
