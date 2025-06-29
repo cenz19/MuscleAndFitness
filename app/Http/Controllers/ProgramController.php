@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Day;
 use App\Models\Exercise;
 use Illuminate\Http\Request;
+use App\Models\Program;
 
 class ProgramController extends Controller
 {
@@ -12,11 +13,25 @@ class ProgramController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $programs = Day::with('exercises')->get();
-        // return $programs;
-        return view('program.index', compact('programs'));
-    }
+{
+    $programs = Program::with(['category', 'day', 'exercise'])
+        ->get()
+        ->sortBy([
+            ['category_id', 'asc'],
+            ['day_id', 'asc']
+        ])
+        ->groupBy(function ($program) {
+            return $program->category->name;
+        })
+        ->map(function ($categoryGroup) {
+            return $categoryGroup->groupBy(function ($program) {
+                return $program->day->name;
+            });
+        });
+
+    return view('program.index', compact('programs'));
+}
+
 
     /**
      * Show the form for creating a new resource.

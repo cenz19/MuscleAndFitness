@@ -104,13 +104,13 @@
         <i class="bi bi-calendar"></i>
         <h3>Programs</h3>
         <p>This structured fitness regimen guides you to your goals through consistent with our expert-led strength workouts.</p>
-        <a href="{{route('program')}}" class="btn">Learn More</a>
+        <a href="{{route('program.index')}}" class="btn">Learn More</a>
     </div>
     <div class="feature-item">
         <i class="bi bi-activity"></i>
         <h3>Exercises</h3>
         <p>Improve your heart health and burn calories with dynamic cardio sessions.</p>
-        <a href="{{route('exercise.user.index')}}" class="btn">Learn More</a>
+        <a href="{{route('exercise.index')}}" class="btn">Learn More</a>
     </div>
     <div class="feature-item">
         <i class="bi bi-egg-fried icon"></i>

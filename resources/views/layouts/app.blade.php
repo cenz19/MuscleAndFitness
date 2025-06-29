@@ -140,8 +140,8 @@
         </a>
         <ul>
             <li><a href="/home">Home</a></li>
-            <li><a href="{{route('program')}}">Program</a></li>
-            <li><a href="{{route('exercise.user.index')}}">Exercise</a></li>
+            <li><a href="{{route('program.index')}}">Program</a></li>
+            <li><a href="{{route('exercise.index')}}">Exercise</a></li>
             <li><a href="/supporting-factors">Supporting Factors</a></li>
             <li><a href="/about">About Us</a></li>
             <li><a href="/login">Login</a></li>

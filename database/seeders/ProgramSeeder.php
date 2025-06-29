@@ -16,25 +16,53 @@ class ProgramSeeder extends Seeder
         //
         DB::table('programs')->insert([
             [
+                'category_id' => 1,
                 'day_id' => 1,
                 'exercise_id' => 1,
-                'reps' => 12,
+                'reps' => 10,
             ],
             [
+                'category_id' => 1,
+                'day_id' => 1,
+                'exercise_id' => 2,
+                'reps' => 20,
+            ],
+            [
+                'category_id' => 1,
+                'day_id' => 1,
+                'exercise_id' => 3,
+                'reps' => 30,
+            ],
+            [
+                'category_id' => 2,
                 'day_id' => 1,
                 'exercise_id' => 2,
                 'reps' => 10,
             ],
             [
+                'category_id' => 2,
                 'day_id' => 2,
                 'exercise_id' => 1,
                 'reps' => 15,
             ],
             [
-                'day_id' => 2,
+                'category_id' => 3,
+                'day_id' => 1,
                 'exercise_id' => 3,
                 'reps' => 8,
             ],
+            [
+                'category_id' => 3,
+                'day_id' => 2,
+                'exercise_id' => 4,
+                'reps' => 8,
+            ],
+            [
+                'category_id' => 3,
+                'day_id' => 3,
+                'exercise_id' => 5,
+                'reps' => 8,
+            ]
         ]);
     }
 }

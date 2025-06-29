@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Program;
 
 class Day extends Model
 {
@@ -12,10 +13,9 @@ class Day extends Model
 
     protected $fillable = ['name'];
     public $timestamps = false;
-    public function exercises()
+    public function programs()
     {
-        return $this->belongsToMany(Exercise::class, 'programs', 'day_id', 'exercise_id')
-                    ->withPivot('reps');
+        return $this->hasMany(Program::class);
     }
 
 }

@@ -6,21 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Program;
 
-class Exercise extends Model
+class Category extends Model
 {
     use HasFactory;
-    protected $table = 'exercises';
+    protected $table = 'categories';
 
-    public $timestamps = false;
 
     protected $fillable = [
-        'name',
-        'description',
+        'name'
     ];
-    
+    public $timestamps = false;
+
     public function programs()
     {
         return $this->hasMany(Program::class);
     }
-
 }

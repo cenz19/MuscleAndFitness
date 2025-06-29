@@ -1,14 +1,12 @@
 <?php
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DayController;
 use App\Http\Controllers\ExerciseAdminController;
 use App\Http\Controllers\ExerciseUserController;
 use App\Http\Controllers\ProgramAdminController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SupportingAdminController;
 use App\Http\Controllers\SupportingController;
-use App\Http\Controllers\SupportingControllerAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +24,6 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-Route::get('/template', function(){
-    return view('layouts.app');
-});
-
 Route::get('/home', function(){
     return view('home.index');
 });
@@ -42,20 +36,30 @@ Route::get('/login', function(){
     return view('login.index');
 });
 
-Route::get('/program', [ProgramController::class, 'index'])->name('program');
-Route::resource('/exercise-admin', ExerciseAdminController::class)->names('exercise.admin');
-Route::resource('/program-admin', ProgramAdminController::class)->names("program.admin");
-Route::get('/editProgramAdmin/{idExercise}/{idDay}', [ProgramAdminController::class, 'editProgram'])->name('edit.program.admin');
+##PROGRAM
+Route::resource('/program', ProgramController::class);
+Route::resource('/admin-program', ProgramAdminController::class);
+Route::get('/admin/programs/edit/{idExercise}/{idDay}/{idCategory}', [ProgramAdminController::class, 'edit'])
+    ->name('admin.program.edit');
+
+Route::put('/admin/programs/update', [ProgramAdminController::class, 'update'])
+    ->name('admin.program.update');
+
+
 Route::put('/updateProgram', [ProgramAdminController::class, 'updateProgram'])->name('update.program.admin');
-Route::resource('/day', DayController::class)->names('day.admin');
+
+## EXERCISE
+Route::resource('/exercise', ExerciseUserController::class);
+Route::resource('/exercise-admin', ExerciseAdminController::class)->names('exercise.admin');
+
+#SUPPORTING FACTOR
 Route::resource('/supporting-admin', SupportingAdminController::class)->names('nutrition.admin');
 
-Route::post('/login', [LoginController::class, 'login'])->name('login');
-Route::resource('/dashboard', DashboardController::class);  
 
-Route::resource('/exercise', ExerciseUserController::class)->names('exercise.user');
+Route::resource('/dashboard', DashboardController::class);  
 Route::resource('/supporting-factors', SupportingController::class)->names('supporting-factors');
 
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 

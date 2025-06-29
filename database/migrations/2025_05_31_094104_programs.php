@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->unsignedBigInteger('exercise_id');
             $table->unsignedBigInteger('day_id');
+            $table->unsignedBigInteger('category_id'); 
             $table->integer('reps');
         
             $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
             $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
-        
-            $table->primary(['day_id', 'exercise_id']);
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->primary(['day_id', 'exercise_id','category_id']);
         });
         
     }

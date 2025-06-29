@@ -29,15 +29,12 @@
     th, td {
         padding: 1rem;
         text-align: left;
-        border-bottom: 1px solid #eee;
+        border: 1px solid #eee;
+        vertical-align: top;
     }
 
     tr:hover {
         background-color: #f9f9f9;
-    }
-
-    .action-form {
-        display: inline-block;
     }
 
     .btn-outline {
@@ -59,46 +56,60 @@
 @endsection
 
 @section('content')
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <h1>List of Programs</h1>
     <table>
         <thead>
             <tr>
-                <th>Day id</th>
-                <th>Day Name</th>
-                <th>Exercise id</th>
-                <th>Exercise Name</th>
+                <th>No</th>
+                <th>Category</th>
+                <th>Day</th>
+                <th>Exercise</th>
                 <th>Reps</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-           @foreach ($programs as $program)
-               <tr>
-                <td rowspan="{{$program->exercises->count() + 1}}">{{$program->id}}</td>
-                <td rowspan="{{$program->exercises->count() + 1}}">{{$program->name}}</td>
-                @if ($program->exercises != null)
-                    @foreach ($program->exercises as $exercise)
-                    <tr>
-                        <td>{{$exercise->id}}</td>
-                        <td>{{$exercise->name}}</td>
-                        <td>{{$exercise->pivot->reps}}</td>
-                        <td>
-                            <form action="{{route('edit.program.admin', ['idExercise' => $exercise->id, 'idDay' => $program->id ])}}" method="get">
-                                <input type="hidden" value="{{$exercise->pivot->reps}}" name="reps">
-                                <button class="btn btn-outline" type="submit">Edit</button>
-                            </form>
-                        </td>
-                    </tr>
+            @php $rowNumber = 1; @endphp
+            @foreach ($groupedPrograms as $categoryName => $days)
+                @php
+                    $categoryRowspan = $days->flatten()->count();
+                    $firstCategoryRow = true;
+                @endphp
+                @foreach ($days as $dayName => $programs)
+                    @php
+                        $dayRowspan = $programs->count();
+                        $firstDayRow = true;
+                    @endphp
+                    @foreach ($programs as $program)
+                        <tr>
+                            <td>{{ $rowNumber++ }}</td>
+
+                            @if ($firstCategoryRow)
+                                <td rowspan="{{ $categoryRowspan }}">{{ $categoryName }}</td>
+                                @php $firstCategoryRow = false; @endphp
+                            @endif
+
+                            @if ($firstDayRow)
+                                <td rowspan="{{ $dayRowspan }}">{{ $dayName }}</td>
+                                @php $firstDayRow = false; @endphp
+                            @endif
+
+                            <td>{{ $program->exercise->name ?? '-' }}</td>
+                            <td>{{ $program->reps }}</td>
+                            <td>
+                                <form action="{{ route('admin.program.edit', [
+                                    'idExercise' => $program->exercise_id,
+                                    'idDay' => $program->day_id,
+                                    'idCategory' => $program->category_id
+                                ]) }}" method="get" class="d-inline">
+                                    <input type="hidden" name="reps" value="{{ $program->reps }}">
+                                    <button type="submit" class="btn-outline">Edit</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
-                @endif
-               </tr>
-           @endforeach
+                @endforeach
+            @endforeach
         </tbody>
     </table>
 @endsection

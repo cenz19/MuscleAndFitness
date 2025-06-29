@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Program;
+use App\Models\Exercise;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $programs = Program::all();
+        $programs = Exercise::with('days')->get();
         return view('dashboard.program.program', compact('programs'));
     }
 

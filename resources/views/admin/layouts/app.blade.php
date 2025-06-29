@@ -133,19 +133,14 @@
             <h3>Dashboard Admin</h3>
         </div>
         <ul class="nav-links">
-            <li class="@yield('isExercise')">
-                <a href="{{ route('exercise.admin.index') }}">
-                    <i class="fas fa-dumbbell"></i> &nbsp; Exercise
-                </a>
-            </li>
             <li class="@yield('isProgram')">
-                <a href="{{ route('program.admin.index') }}">
+                <a href="{{ route('admin-program.index') }}">
                     <i class="fas fa-layer-group"></i> &nbsp; Program
                 </a>
             </li>
-            <li class="@yield('isDay')">
-                <a href="{{ route('day.admin.index') }}">
-                    <i class="fa-solid fa-calendar-days"></i> &nbsp; Day
+            <li class="@yield('isExercise')">
+                <a href="{{ route('exercise.admin.index') }}">
+                    <i class="fas fa-dumbbell"></i> &nbsp; Exercise
                 </a>
             </li>
             <li class="@yield('isNutrition')">

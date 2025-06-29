@@ -71,6 +71,24 @@
         background-color: #e65c00;
         color: #fff;
     }
+
+    .exercise-item {
+        background-color: #ffffff;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid #ff6600;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .exercise-item h6 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .exercise-item p {
+        margin: 0;
+    }
 </style>
 @endsection
 
@@ -84,28 +102,37 @@
 
 <!-- Program Accordion Section -->
 <div class="accordion" id="programAccordion">
-    @foreach($programs as $index => $program)
+    @foreach($programs as $categoryName => $days)
         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-{{ $index }}">
+            <h2 class="accordion-header" id="heading-{{ \Str::slug($categoryName) }}">
                 <button class="accordion-button collapsed" type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#collapse-{{ $index }}"
+                        data-bs-target="#collapse-{{ \Str::slug($categoryName) }}"
                         aria-expanded="false"
-                        aria-controls="collapse-{{ $index }}">
-                    <i class="bi bi-lightning-charge me-2"></i> {{ $program->name }}
+                        aria-controls="collapse-{{ \Str::slug($categoryName) }}">
+                    <i class="bi bi-tags-fill me-2"></i> {{ $categoryName }}
                 </button>
             </h2>
 
-            <div id="collapse-{{ $index }}" class="accordion-collapse collapse"
-                 aria-labelledby="heading-{{ $index }}"
+            <div id="collapse-{{ \Str::slug($categoryName) }}" class="accordion-collapse collapse"
+                 aria-labelledby="heading-{{ \Str::slug($categoryName) }}"
                  data-bs-parent="#programAccordion">
                 <div class="accordion-body">
-                    <ul>
-                        @foreach ($program->exercises as $exercise)
-                            <h3>{{ $exercise['name'] }}</h3>
-                            <p>{{$exercise['description']}}</p>
-                        @endforeach
-                    </ul>
+                    @foreach($days as $dayName => $programGroup)
+                        <h4 class="mt-4 mb-3">
+                            <!-- <i class="bi bi-calendar-event me-2"></i> -->
+                            <h3>{{ $dayName }}</h3>
+                        </h4>
+                        <div>
+                            @foreach($programGroup as $program)
+                                <div class="exercise-item">
+                                    <h3>{{ $program->exercise->name }}</h3>
+                                    <p>{{ $program->exercise->description }}</p>
+                                    <p><strong>Reps:</strong> {{ $program->reps }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
