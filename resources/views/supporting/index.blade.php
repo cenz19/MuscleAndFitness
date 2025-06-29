@@ -98,6 +98,10 @@
             <h4 id="category">Category:</h4>
         </div>
     </div>
+    <div class="card p-4 mb-5">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt ullam nobis ducimus illum magni error necessitatibus eum earum dolore fugit autem exercitationem minus maiores excepturi non in, perferendis nemo numquam.</p>
+    </div>
 
     <!-- Food Calorie List -->
     <div class="mb-4">
